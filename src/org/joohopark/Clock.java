@@ -2,9 +2,7 @@ package org.joohopark;
 
 public class Clock {
 	
-    private int ticks,
-    			lastFall,
-    			lastInput;
+    private int ticks;
     private long lastUpdate,
     			 now,
                  lastTimer;
@@ -14,8 +12,6 @@ public class Clock {
     public Clock(){
     	
         this.ticks = 0;
-        this.lastFall = 0;
-        this.lastInput = 0;
         this.lastUpdate = System.nanoTime();
         this.lastTimer = System.currentTimeMillis();
         this.delta = 0f;
@@ -30,11 +26,6 @@ public class Clock {
         boolean shouldRender = false;
         
         if(delta >= 1){
-        	lastInput--;
-        	if(lastInput < 0){
-        		lastInput = 0;
-        	}
-        	lastFall++;
         	tick();
         	delta--;
         	shouldRender = true;
@@ -52,28 +43,6 @@ public class Clock {
     
     private void tick(){
         ticks++;
-    }
-    
-    public boolean inputCooldown(){
-    	if(lastInput <= 0){
-    		lastInput = 7;
-    		return true;
-    	}else{
-    		return false;
-    	}
-    }
-    
-    //checks if a piece can fall
-    public boolean gravity(double gravity){
-    	if(lastFall * gravity >= 1){
-    		resetGravity();
-    		return true;
-    	}
-    	return false;
-    }
-    
-    public void resetGravity(){
-    	lastFall = 0;
     }
     
     public static final float getTime(){
