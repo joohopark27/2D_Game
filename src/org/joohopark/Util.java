@@ -1,8 +1,10 @@
+package org.joohopark;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Util{
+public class Util {
 
     public static String loadMap (String path){
         String Map = "";

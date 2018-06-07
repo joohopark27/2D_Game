@@ -1,12 +1,14 @@
-public class World{
+package org.joohopark;
+
+public class World {
 
     public int xLength,
                yLength;
     public int[][] map;
 
-    public World(){
+    public World(String path){
         
-        String rawData = Util.loadMap("Map.txt");
+        String rawData = Util.loadMap(path + ".map");
 
         String[] data = rawData.split("\\s+");
         xLength = Util.parseInt(data[0]);
@@ -19,12 +21,12 @@ public class World{
             }
         }
 
-        for(int[] y : map){
+/*      for(int[] y : map){
             for(int x : y){
                 System.out.print(x + " ");
             }
             System.out.println();
-        }
+        }*/
 
     }
 
