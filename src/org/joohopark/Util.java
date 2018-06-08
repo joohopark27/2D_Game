@@ -9,7 +9,7 @@ public class Util {
     public static String loadMap (String path){
         String Map = "";
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("Map.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(path));
 
             String line;
             while ((line = reader.readLine()) != null) {

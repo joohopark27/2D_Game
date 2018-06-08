@@ -6,9 +6,9 @@ public class World {
                yLength;
     public int[][] map;
 
-    public World(String path){
+    public World(String mapName){
         
-        String rawData = Util.loadMap(path + ".map");
+        String rawData = Util.loadMap("res/" + mapName + ".map");
 
         String[] data = rawData.split("\\s+");
         xLength = Util.parseInt(data[0]);

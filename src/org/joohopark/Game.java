@@ -1,5 +1,7 @@
 package org.joohopark;
 
+import java.io.File;
+
 public class Game {
 
 	Clock clock;
@@ -34,6 +36,7 @@ public class Game {
 	}
 	
 	public static void main(String[] args) {
+		new World("TestMap");
 		new Launcher();
 	}
 
