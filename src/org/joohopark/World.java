@@ -8,7 +8,7 @@ public class World {
 
     public World(String mapName){
         
-        String rawData = Util.loadMap("res/" + mapName + ".map");
+        String rawData = Util.loadMap(mapName);
 
         String[] data = rawData.split("\\s+");
         xLength = Util.parseInt(data[0]);
@@ -22,11 +22,11 @@ public class World {
         }
 
 /*      for(int[] y : map){
-            for(int x : y){
-                System.out.print(x + " ");
-            }
-            System.out.println();
-        }*/
+*           for(int x : y){
+*               System.out.print(x + " ");
+*           }
+*           System.out.println();
+*       }*/
 
     }
 

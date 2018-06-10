@@ -6,7 +6,11 @@ import java.io.IOException;
 
 public class Util {
 
-    public static String loadMap (String path){
+    public static String loadMap(String mapName){
+        return readFile("res/" + mapName + ".map");
+    }
+
+    public static String readFile (String path){
         String Map = "";
         try {
             BufferedReader reader = new BufferedReader(new FileReader(path));
