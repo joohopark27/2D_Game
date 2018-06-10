@@ -6,10 +6,10 @@ import org.joohopark.World.World;
 
 public class Game {
 
-    World map;
-	Clock clock;
+    private World map;
+	private Clock clock;
 	
-	boolean isRunning;
+	private boolean isRunning;
 	
 	public Game(String mapName){
 		
@@ -18,7 +18,7 @@ public class Game {
 		
 	}
 	
-	public void init(String mapName){
+	private void init(String mapName){
 
 		map = new World(mapName);
 		clock = new Clock();
@@ -29,7 +29,7 @@ public class Game {
 		
 	}
 	
-	public void run(){
+	private void run(){
 		while(isRunning){
 			if(clock.timer()){
 				update();
@@ -37,7 +37,7 @@ public class Game {
 		}
 	}
 	
-	public void update(){
+	private void update(){
 		
 	}
 	
