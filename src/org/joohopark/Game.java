@@ -4,12 +4,14 @@ import java.io.File;
 
 public class Game {
 
+    World map;
 	Clock clock;
 	
 	boolean isRunning;
 	
-	public Game(){
-		
+	public Game(String mapName){
+
+		map = new World(mapName);
 		clock = new Clock();
 		
 		init();
@@ -36,7 +38,6 @@ public class Game {
 	}
 	
 	public static void main(String[] args) {
-		//new World("TestMap");
 		new Launcher();
 	}
 

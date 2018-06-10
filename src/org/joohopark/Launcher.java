@@ -12,13 +12,14 @@ public class Launcher {
     JButton Start = new JButton("Play");
     JButton Exit = new JButton("Exit");
     JButton Edit = new JButton("Edit Map");
+    JLabel Background = new JLabel(new ImageIcon("res/TestBackgroundImg.png"));
     JComboBox<String> MapList;
 
     private String selectedMap;
     
     private int buttonXSize = 100;
     private int buttonYSize = 30;
-    private final int WIDTH = 480;
+    private final int WIDTH = 490;
     private final int HEIGHT = 530;
     private int buttonYLocation = HEIGHT - buttonYSize - 40;
 	
@@ -36,7 +37,7 @@ public class Launcher {
         Start.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                new Game(selectedMap);
             }
         });
 
@@ -54,7 +55,7 @@ public class Launcher {
         MapList.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                selectedMap = MapList.getSelectedItem().toString();
             }
         });
 
@@ -67,6 +68,10 @@ public class Launcher {
 				System.exit(0);
 			}
         });
+
+        Background.setSize(WIDTH - 20, buttonYLocation - 20);
+        Background.setLocation(10, 10);
+        Menu.add(Background);
         
 		Menu.setVisible(true);
 	}
