@@ -1,5 +1,6 @@
 package org.joohopark;
 
+import org.joohopark.Assets.Tiles;
 import org.joohopark.Util.Clock;
 import org.joohopark.World.World;
 
@@ -11,17 +12,19 @@ public class Game {
 	boolean isRunning;
 	
 	public Game(String mapName){
-
-		map = new World(mapName);
-		clock = new Clock();
 		
-		init();
+		init(mapName);
 		run();
 		
 	}
 	
-	public void init(){
-		
+	public void init(String mapName){
+
+		map = new World(mapName);
+		clock = new Clock();
+
+		Tiles.init();
+
 		isRunning = true;
 		
 	}
