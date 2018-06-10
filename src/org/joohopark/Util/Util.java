@@ -1,5 +1,7 @@
 package org.joohopark.Util;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class Util {
@@ -49,6 +51,15 @@ public class Util {
             e.printStackTrace();
         }
 
+    }
+
+    public static BufferedImage getSheet(String path){
+        try {
+            return ImageIO.read(new File(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static int parseInt(String number){
