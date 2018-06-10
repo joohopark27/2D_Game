@@ -19,10 +19,12 @@ public class World {
         xLength = Util.parseInt(data[0]);
         yLength = Util.parseInt(data[1]);
         map = new int[yLength][xLength];
+        System.out.println(yLength);
 
         for(int y = 0; y < yLength; y++){
             for(int x = 0; x < xLength; x++){
-                map[y][x] = Util.parseInt(data[2 + x + y*5]);
+                System.out.println(y + " " + x);
+                map[y][x] = Util.parseInt(data[2 + x + y * 5]);
             }
         }
 
@@ -32,6 +34,22 @@ public class World {
 *           }
 *           System.out.println();
 *       }*/
+    }
+
+    public void setMap(int x, int y, int type){
+        map[y][x] = type;
+    }
+
+    public int getxLength() {
+        return xLength;
+    }
+
+    public int getyLength() {
+        return yLength;
+    }
+
+    public int[][] getMap() {
+        return map;
     }
 
     public String getMapName(){

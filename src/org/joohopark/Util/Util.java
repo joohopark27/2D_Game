@@ -33,8 +33,9 @@ public class Util {
         String[] data = new String[height + 1];
         data[0] = Integer.toString(width) + " " + Integer.toString(height);
         for(int y = 1; y <= height; y++){
+            data[y] = "";
             for(int x = 0; x < width; x++){
-                data[y] = Integer.toString(map[y-1][x]) + " ";
+                data[y] += " " + Integer.toString(map[y-1][x]);
             }
         }
         editFile("res/" + mapName + ".map", data);

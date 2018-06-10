@@ -12,7 +12,7 @@ public class Tiles {
 
     public static void init(){
 
-        SpriteSheet tileSheet = new SpriteSheet(Util.getSheet("res/TileSheet"));
+        SpriteSheet tileSheet = new SpriteSheet(Util.getSheet("res/TileSheet.png"));
 
         one = tileSheet.crop(0, 0, 32);
         two = tileSheet.crop(32, 0, 32);
