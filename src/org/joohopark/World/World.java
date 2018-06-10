@@ -1,4 +1,6 @@
-package org.joohopark;
+package org.joohopark.World;
+
+import org.joohopark.Util.Util;
 
 public class World {
 

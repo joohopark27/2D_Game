@@ -1,4 +1,4 @@
-package org.joohopark;
+package org.joohopark.Util;
 
 public class Clock {
 	

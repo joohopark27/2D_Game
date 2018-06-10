@@ -1,5 +1,8 @@
 package org.joohopark;
 
+import org.joohopark.Util.Util;
+import org.joohopark.World.EditWorld;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -37,13 +40,23 @@ public class Launcher {
         Start.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Game(selectedMap);
+                if(selectedMap != "New Map"){
+                    new Game(selectedMap);
+                }
             }
         });
 
         Edit.setSize(buttonXSize, buttonYSize);
         Edit.setLocation(120, buttonYLocation);
         Menu.add(Edit);
+        Edit.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(selectedMap != "New Map"){
+                    new EditWorld(selectedMap);
+                }
+            }
+        });
 
         String[] mapList = (Util.readFile("res/MapList.map")).split("\\s+");
         selectedMap = mapList.length > 0 ?  mapList[0] : "New Map";
