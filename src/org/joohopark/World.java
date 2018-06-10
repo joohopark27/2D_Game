@@ -2,12 +2,15 @@ package org.joohopark;
 
 public class World {
 
-    public int xLength,
+    private int xLength,
                yLength;
-    public int[][] map;
+    private int[][] map;
+
+    private String mapName;
 
     public World(String mapName){
-        
+
+        this.mapName = mapName;
         String rawData = Util.loadMap(mapName);
 
         String[] data = rawData.split("\\s+");
@@ -27,7 +30,10 @@ public class World {
 *           }
 *           System.out.println();
 *       }*/
+    }
 
+    public String getMapName(){
+        return mapName;
     }
 
 }
