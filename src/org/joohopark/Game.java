@@ -36,7 +36,7 @@ public class Game {
 	}
 	
 	public static void main(String[] args) {
-		new World("TestMap");
+		//new World("TestMap");
 		new Launcher();
 	}
 
