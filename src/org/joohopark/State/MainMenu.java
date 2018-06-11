@@ -1,17 +1,15 @@
-package org.joohopark;
+package org.joohopark.State;
 
+import org.joohopark.Game;
 import org.joohopark.Util.Util;
 import org.joohopark.World.EditWorld;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+public class MainMenu extends State{
 
-public class Launcher {
-
-    public static JFrame Menu = new JFrame("Launcher");
-    private JPanel Panel = new JPanel();
     private JButton Start = new JButton("Play");
     private JButton Exit = new JButton("Exit");
     private JButton Edit = new JButton("Edit Map");
@@ -19,43 +17,30 @@ public class Launcher {
     private JComboBox<String> MapList;
 
     private String selectedMap;
-    
     private final int buttonXSize = 100;
     private final int buttonYSize = 30;
-    private final int WIDTH = 490;
-    private final int HEIGHT = 530;
-    private final int buttonYLocation = HEIGHT - buttonYSize - 40;
-	
-	public Launcher(){
+    private final int buttonYLocation = 500 - buttonYSize - 40;
 
-		Menu.setSize(WIDTH, HEIGHT);
-		Menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Menu.setResizable(false);
-        Menu.setLayout(null);
-		Menu.setLocationRelativeTo(null);
-		
+    public MainMenu(Game game){
+        super(game);
+
         Start.setSize(buttonXSize, buttonYSize);
         Start.setLocation(10, buttonYLocation);
-        Menu.add(Start);
         Start.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(selectedMap != "New Map"){
-                    Menu.setVisible(false);
-                    new Game(selectedMap);
+
                 }
             }
         });
 
         Edit.setSize(buttonXSize, buttonYSize);
         Edit.setLocation(120, buttonYLocation);
-        Menu.add(Edit);
         Edit.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                Menu.setVisible(false);
                 if(selectedMap != "New Map"){
-                    Menu.setVisible(false);
                     new EditWorld(selectedMap);
                 }
             }
@@ -67,7 +52,7 @@ public class Launcher {
         MapList.addItem("New Map");
         MapList.setSize(buttonXSize + 30, buttonYSize);
         MapList.setLocation(230, buttonYLocation);
-        Menu.add(MapList);
+        screen.add(MapList);
         MapList.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,19 +62,36 @@ public class Launcher {
 
         Exit.setSize(buttonXSize, buttonYSize);
         Exit.setLocation(370, buttonYLocation);
-        Menu.add(Exit);
+        screen.add(Exit);
         Exit.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
         });
 
-        Background.setSize(WIDTH - 20, buttonYLocation - 20);
+        Background.setSize(490 - 20, buttonYLocation - 20);
         Background.setLocation(10, 10);
-        Menu.add(Background);
-        
-		Menu.setVisible(true);
-	}
-	
+        screen.add(Background);
+    }
+
+    private void remove(){
+        screen.remove(Start);
+        screen.remove(Edit);
+        screen.remove(MapList);
+        screen.remove(Exit);
+        screen.remove(Background);
+    }
+
+    @Override
+    public void tick() {
+
+    }
+
+    @Override
+    public void render() {
+        screen.add(Start);
+        screen.add(Edit);
+
+    }
 }
