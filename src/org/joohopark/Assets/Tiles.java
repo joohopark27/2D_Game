@@ -6,9 +6,7 @@ import java.awt.image.BufferedImage;
 
 public class Tiles {
 
-    private static BufferedImage tileSheet;
-
-    public static BufferedImage one, two, three, four;
+    private static BufferedImage one, two, three, four;
 
     public static void init(){
 
@@ -19,6 +17,21 @@ public class Tiles {
         three = tileSheet.crop(64, 0, 32);
         four = tileSheet.crop(96, 0, 32);
 
+    }
+
+    public static BufferedImage getTile(int num){
+        switch (num){
+            case 1:
+                return one;
+            case 2:
+                return two;
+            case 3:
+                return three;
+            case 4:
+                return four;
+            default:
+                return null;
+        }
     }
 
 }

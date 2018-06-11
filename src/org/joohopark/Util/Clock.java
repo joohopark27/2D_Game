@@ -1,7 +1,10 @@
 package org.joohopark.Util;
 
+import org.joohopark.World.EditWorld;
+import org.joohopark.Game;
+
 public class Clock {
-	
+
     private int ticks;
     private long lastUpdate,
     			 now,
