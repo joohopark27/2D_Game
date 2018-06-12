@@ -3,6 +3,7 @@ package org.joohopark.State;
 import org.joohopark.Game;
 import org.joohopark.Screen;
 import org.joohopark.Util.Util;
+import org.joohopark.World.EditWorld;
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,6 +50,7 @@ public class MainMenu extends State{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(selectedMap != "New Map"){
+                    game.changeState(2, selectedMap);
                 }
             }
         });
@@ -90,7 +92,8 @@ public class MainMenu extends State{
 
     }
 
-    private void remove(){
+    @Override
+    public void reset(){
         screen.remove(Start);
         screen.remove(Edit);
         screen.remove(MapList);

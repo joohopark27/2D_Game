@@ -3,6 +3,7 @@ package org.joohopark.State;
 import org.joohopark.Game;
 
 import javax.swing.*;
+import java.awt.*;
 
 public abstract class State {
 
@@ -24,6 +25,7 @@ public abstract class State {
         this.screen = game.getScreen().getFrame();
     }
 
+    public abstract void reset();
     public abstract void tick();
     public abstract void render();
 

@@ -7,12 +7,9 @@ import org.joohopark.State.EditorState;
 import org.joohopark.State.MainMenu;
 import org.joohopark.State.State;
 import org.joohopark.Util.Clock;
-import org.joohopark.Util.Util;
 import org.joohopark.World.World;
 
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 public class Game implements Runnable{
 
@@ -48,7 +45,6 @@ public class Game implements Runnable{
         isRunning = true;
 
         mainMenu = new MainMenu(this);
-        editor = new EditorState(this);
 
         State.setState(mainMenu);
 
@@ -71,6 +67,20 @@ public class Game implements Runnable{
 
     private void update(){
         State.getState().render();
+    }
+
+    public void changeState(int state, String mapName){
+        State.getState().reset();
+        this.mapName = mapName;
+        switch (state){
+            case 1:
+                State.setState(mainMenu);
+                return;
+            case 2:
+                editor = new EditorState(this);
+                State.setState(editor);
+                return;
+        }
     }
 
     public synchronized void start(){
@@ -96,6 +106,10 @@ public class Game implements Runnable{
 
     public Screen getScreen(){
         return screen;
+    }
+
+    public String getMapName(){
+        return mapName;
     }
 
     public static void main(String[] args) {
