@@ -20,8 +20,8 @@ public class Screen extends Canvas{
 
 		frame = new JFrame(Title);
 		frame.setSize(dimension);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(true);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setFocusable(true);
@@ -32,8 +32,8 @@ public class Screen extends Canvas{
 		canvas.setMinimumSize(dimension);
 		canvas.setFocusable(false);
 		
-		frame.add(canvas);
-		frame.pack();
+		//frame.add(canvas);
+		//frame.pack();
 		
 	}
 	

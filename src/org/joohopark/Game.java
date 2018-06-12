@@ -70,7 +70,7 @@ public class Game implements Runnable{
     }
 
     private void update(){
-
+        State.getState().render();
     }
 
     public synchronized void start(){
